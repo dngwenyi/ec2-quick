@@ -8,11 +8,11 @@ terraform {
 }
 
 provider "aws" {
-  region = "eu-west-2" # Replace with your desired region
+  region = "east-us-2" # Replace with your desired region
 }
 
 resource "aws_security_group" "sg" {
-  name_prefix = "karo-sg"
+  name_prefix = "della-sg"
 
   // Allow incoming SSH and HTTP traffic
   ingress {
@@ -31,9 +31,9 @@ resource "aws_security_group" "sg" {
 }
 
 resource "aws_instance" "ec2" {
-  ami           = "ami-0f3d9639a5674d559"    # Replace with your desired AMI ID
+  ami           = "ami-053b0d53c279acc90"    # Replace with your desired AMI ID
   instance_type = "t2.micro"                 # Replace with your desired instance type
-  key_name      = "rekeyole-key-pair-access" # Replace with your key pair name
+  key_name      = "man-ibt-review" # Replace with your key pair name
 
   security_groups = [aws_security_group.sg.name]
 
